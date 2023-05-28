@@ -1,0 +1,56 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /employee-service
+
+spring:
+  application:
+    name: employee-service
+  data:
+    mongodb:
+      uri: mongodb+srv://employee_user:mongopassword@cluster0.hzayn.mongodb.net/ehr?retryWrites=true&w=majority
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+access:
+  key:
+    id: AKIASTEXZJHGZNOQJXLK
+    secret: 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
+
+cloud:
+  aws:
+    credentials:
+      secret-key: mw4AKsw6t8InwZYvYknFDK4omzQ7skwtrq8Kbd6G
+      access-key:   AKIASTEXZJHG3DRQC7LV
+
+    region:
+      static: us-east-1
+      auto: false
+      use-default-aws-region-chain: 'true'
+    stack:
+      nodeValue: 'false'
+      auto: 'false'
+
+
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error
+        internal:
+          InstanceMetadataServiceResourceFetcher: error
+
+
+s3:
+  bucket:
+    name: 'bf-ehr'
+  region:
+    name: us-east-1
