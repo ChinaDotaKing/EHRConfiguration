@@ -24,33 +24,3 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 
 
-cloud:
-  aws:
-    credentials:
-      secret-key: mw4AKsw6t8InwZYvYknFDK4omzQ7skwtrq8Kbd6G
-      access-key:   AKIASTEXZJHG3DRQC7LV
-
-    region:
-      static: us-east-1
-      auto: false
-      use-default-aws-region-chain: 'true'
-    stack:
-      nodeValue: 'false'
-      auto: 'false'
-
-
-logging:
-  level:
-    com:
-      amazonaws:
-        util:
-          EC2MetadataUtils: error
-        internal:
-          InstanceMetadataServiceResourceFetcher: error
-
-
-s3:
-  bucket:
-    name: 'bf-ehr'
-  region:
-    name: us-east-1
