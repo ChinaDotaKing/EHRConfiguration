@@ -1,0 +1,61 @@
+spring:
+#  mail:
+#    username: beaconfireemail@sina.com
+#    password: 7bbf770f68dc384a
+#    properties:
+#      mail:
+#        smtp:
+#          ssl:
+#            enable: true
+#            required: false
+#            debug: true
+#          starttls:
+#            enable: 'true'
+#            required: 'true'
+#          auth: 'true'
+#    host: smtp.sina.com
+#    port: 587
+#    protocol: smtp
+
+  rabbitmq:
+    host: 54.88.238.139
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirms: true
+  application:
+    name: email-service
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+server:
+  port: 8084
+  servlet:
+    context-path: /email-service
+
+crypt:
+  round: 10
+
+security:
+  jwt:
+    token:
+      key: helloworld
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, beans, mappings, info, env
+
+
