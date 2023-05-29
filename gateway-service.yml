@@ -1,0 +1,51 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: gateway-service
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      routes:
+        - id: application
+          uri: lb://application # service name
+          predicates:
+            - Path=/application/** # url pattern
+        - id: authentication
+          uri: lb://authentication
+          predicates:
+            - Path=/authentication/**
+        - id: email-service
+          uri: lb://email-service
+          predicates:
+            - Path=/email-service/**
+        - id: employee-service
+          uri: lb://employee-service
+          predicates:
+            - Path=/employee-service/**
+        - id: housing-service
+          uri: lb://housing-service
+          predicates:
+            - Path=/housing-service/**
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  # rabbitmq
+  rabbitmq:
+    host: 54.88.238.139
+    username: guest
+    password: guest
+    port: 5672
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
