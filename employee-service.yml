@@ -10,8 +10,6 @@ spring:
   data:
     mongodb:
       uri: mongodb+srv://employee_user:mongopassword@cluster0.hzayn.mongodb.net/ehr?retryWrites=true&w=majority
-    config:
-      import: optional:configserver:http://localhost:8888
 
 eureka:
   instance:
@@ -52,6 +50,3 @@ s3:
     name: 'bf-ehr'
   region:
     name: us-east-1
-
-      
-      
